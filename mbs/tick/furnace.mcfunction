@@ -1,0 +1,5 @@
+execute as @e[tag=core_furnace_final,tag=!cooking] at @s if entity @e[type=item,nbt={Item:{id:"minecraft:raw_iron"}},distance=..2,sort=nearest] if entity @e[type=item,nbt={Item:{id:"minecraft:coal"}},distance=..2,sort=nearest] run schedule function keks:mbs/tree/combine_iron 6s replace
+execute as @e[tag=core_furnace_final,tag=!cooking] at @s if entity @e[type=item,nbt={Item:{id:"minecraft:raw_iron"}},distance=..2,sort=nearest] if entity @e[type=item,nbt={Item:{id:"minecraft:coal"}},distance=..2,sort=nearest] run tag @s add cooking
+execute as @e[tag=done] at @s as @e[tag=fresh,distance=..2.1] run data merge entity @s {Motion:[0.0,-0.1,0.01]}
+execute as @e[tag=cooking] at @s run particle campfire_cosy_smoke ~ ~2.5 ~ 0 0 0 0.01 1 force @a
+execute as @e[tag=cooking] at @s run particle flame ~ ~1 ~ 0.2 0.6 0.2 0.025 20 force @a
